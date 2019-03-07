@@ -58,4 +58,36 @@ Provided multiple instances of the service for each injected component or child 
   providers: [MyService] <--- Here service injected to comp.
 })
 export class MyComponent { }
+
+Observables and Reactive Extensions (RxJS)
+Help manage async data
+Treat events as a collection
+  - An array whose items arrive asynchronously over time
+Subscribe to receive notifications
+
+Observable Operators
+Methods on observables that compose new observables
+Transforms the source observable in some way
+Process each value as it is emitted
+Ex: map, filter, take, merge, ...
+https://rxmarbles.com
+
+Composing Operators
+Compose operators with pipe method
+Promise vs Obserable
+Provides single future value   |  Emits multiple values over time
+Not lazy                       |  Lazy (subscribe)
+Not cancellable                |  Cancellabe (unsubscribe)
+                               |  Supports map, filter etc. operators
+
+Subscribing to an Observable
+Takes up to 3 arguments, each provided with handler func.
+x.subscribe(nextFn, errorFn, completeFn)
+
+netxtFn: Processes next emitted value, nextFn called for each value
+errorFn: Called if there is an error
+completeFn: Called on completion
+
+.subscribe() method returns a subscription, we can use it to cancel subscription.
+let sub = x.subscribe(nextFn);
 --> 
