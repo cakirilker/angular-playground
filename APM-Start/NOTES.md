@@ -28,4 +28,34 @@ It optionally communicates with its container
 
 Nested components get's data from it's container by @Input properties
 Nested component pass data to it's container by raising events
+
+Dependency Injection
+- Root Injector
+Service is available throughout the application
+Recommended for most scenarios
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MyService { }
+
+Before Angular 6, use one above instead.
+@NgModule({
+  imports: [...],
+  declarations: [...],
+  bootstrap: [...],
+  providers: [MyService]
+})
+export class AppModule { }
+
+- Component Injector
+Service is avaiable only to that component and its child components
+Isolates a service used by only one component
+Provided multiple instances of the service for each injected component or child components.
+
+@Component({
+  templateUrl: './my-component.html',
+  providers: [MyService] <--- Here service injected to comp.
+})
+export class MyComponent { }
 --> 
