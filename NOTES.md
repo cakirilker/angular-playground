@@ -124,4 +124,18 @@ Providers Array:
 ng g m modules/product --flat -m app
 --flat: Does not creates folder
 -m app: imports created module in specified module
+
+Angular CLI
+# To create an app with custom prefix (can be found in angular.json file)
+ng new hello-world --prefix hw
+# Runs unit tests
+ng test
+# Runs protractor for end to end test
+ng e2e
+
+Before deploying app:
+  - Minify/Uglify
+  - Tree Shaking: Shakes code to remove dead branches. Basically removes unused code.
+  - Precompile our templates. (AOT: Ahead of Time Compiler)
+CLI does all above if we add --prod param to ng build
 --> 
