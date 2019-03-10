@@ -90,4 +90,38 @@ completeFn: Called on completion
 
 .subscribe() method returns a subscription, we can use it to cancel subscription.
 let sub = x.subscribe(nextFn);
+
+Angular Modules
+A class with an NgModule decorator
+  - Organize the pieces of our app.
+  - Arrange them into blocks
+  - Extend our application with capabilities from external libraries
+  - Provide a template resolution environment
+  - Aggregate and re-export
+A module can loaded eagerly when the app starts. Or it can be lazy loaded by the router.
+A module 
+  - Declares components,directives,pipes
+  - Bootstraps app route component
+  - Exports directives,components,pipes or other @angular modules
+  - Imports other angular modules
+  - Registers service providers 
+Declarations Array:
+  - Only declare components, directives and pipes. Don't add classes, services or modules to declarations array.
+  - Never re-declare components, directives or pipes that belongs to other modules.
+  - All declared components, directives and pipes are private by default. They are only accessible to other components, directives and pipes declared in the same module.
+Exports Array:
+  - Export any component, directive or pipe if other components need it.
+  - Never export a service. Services added to providers array.
+Imports Array:
+  - Importing a module makes available any exported components, directives and pipes from that module.
+  - Imports are not inherited.
+Providers Array:
+  - No longer recommended.
+  - Recommended after Angular 6 use @Injectable decorator with providedIn: 'root' in service itself.
+  - Don't add services to the providers array of a shared module. Services should be singleton in app. Instead consider building a CoreModule for services and importing it once in the AppModule.
+
+- BrowserModule should only be imported in AppModule.
+ng g m modules/product --flat -m app
+--flat: Does not creates folder
+-m app: imports created module in specified module
 --> 
